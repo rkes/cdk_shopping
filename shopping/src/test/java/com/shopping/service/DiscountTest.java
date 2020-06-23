@@ -21,8 +21,8 @@ public class DiscountTest {
    @Test
    public void testForRegularCustomer(){
       CustomerService customerService = new CustomerService(discountService,regularCustomerSlab);
-      Float []priceArray = {5000.0f,10000.0f,15000.0f};
-      List<Float> expectedDiscountArray = Arrays.asList(5000.0f,9500.0f,13500.0f);
+      Float []priceArray = {5000.0f,6000.0f,15000.0f};
+      List<Float> expectedDiscountArray = Arrays.asList(5000.0f,5900.0f,13500.0f);
       List<Float> resultArray = new ArrayList<>();
       Arrays.stream(priceArray).forEach( price ->{
          resultArray.add(customerService.getAmount(price));
@@ -32,8 +32,8 @@ public class DiscountTest {
    @Test
    public void testForPremiumCustomer(){
       CustomerService customerService = new CustomerService(discountService,premiumCustomerSlab);
-      Float []priceArray = {4000.0f,8000.0f,12000.0f,20000.0f};
-      List<Float> expectedDiscountArray = Arrays.asList(3600.0f,7000.0f,10200.0f,15800.0f);
+      Float []priceArray = {4000.0f,8000.0f,9000.0f,12000.0f,20000.0f,11000.0f};
+      List<Float> expectedDiscountArray = Arrays.asList(3600.0f,7000.0f,7800.0f,10200.0f,15800.0f,9400.0f);
       List<Float> resultArray = new ArrayList<>();
       Arrays.stream(priceArray).forEach( price ->{
          resultArray.add(customerService.getAmount(price));
